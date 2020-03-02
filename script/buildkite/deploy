@@ -20,11 +20,17 @@ main() {
 		--default-launch-type FARGATE \
 		--config-name buildkite
 
-	echo "--- Deploy :rocket"
+	echo "--- Deploy"
 	ecs-cli compose \
 		--project-name tutorial \
 		service up \
 		--create-log-groups \
+		--cluster-config buildkite
+
+	echo "--- Check Status"
+	ecs-cli compose \
+		--project-name tutorial \
+		service ps \
 		--cluster-config buildkite
 }
 
