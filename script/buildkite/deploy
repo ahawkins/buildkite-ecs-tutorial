@@ -3,6 +3,13 @@
 set -euo pipefail
 
 main() {
+	echo "--- Installing the ECS CLI"
+	local scratch="$(mktemp -d)"
+
+	curl -sSL -o "${scratch}/ecs-cli" https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
+
+	export "PATH=${scratch}:${PATH}"
+
 	ecs-cli --version
 }
 
