@@ -1,0 +1,5 @@
+steps:
+  - label: ":ecs: Deploy"
+    command: script/buildkite/deploy
+    agents:
+      use: ecs
