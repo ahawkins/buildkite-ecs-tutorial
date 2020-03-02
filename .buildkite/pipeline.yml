@@ -3,3 +3,6 @@ steps:
     command: script/buildkite/deploy
     agents:
       use: ecs
+    env:
+      AWS_REGION: us-east-1
+      ECS_CLUSTER: demo
