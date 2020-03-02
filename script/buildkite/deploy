@@ -15,7 +15,6 @@ main() {
 
 	echo "--- Configuring the ECS CLI"
 
-	ecs-cli configure profile --profile-name buildkite
 	ecs-cli configure \
 		--cluster "${ECS_CLUSTER}" \
 		--default-launch-type FARGATE \
@@ -26,8 +25,7 @@ main() {
 		--project-name tutorial \
 		service up \
 		--create-log-groups \
-		--cluster-config buildkite \
-		--ecs-profile buildkite
+		--cluster-config buildkite
 }
 
 main "$@"
